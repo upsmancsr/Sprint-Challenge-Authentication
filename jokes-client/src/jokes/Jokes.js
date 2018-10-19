@@ -11,8 +11,8 @@ class Jokes extends Component {
       <div>
         <h2>List of Jokes</h2>
         <ul>
-          {this.state.jokes.map(j => (
-            <li key={j.id}>{j.username}</li>
+          {this.state.jokes.map(joke => (
+            <li key={joke.id}>{joke.username}</li>
           ))}
         </ul>
       </div>
