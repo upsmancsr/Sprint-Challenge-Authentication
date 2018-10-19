@@ -30,12 +30,9 @@ function register(req, res) {
     .catch(err => {
       res.status(500).json(err);
     });
-
-    
-
 }
 
-const jwtSecret = 'I have a secret for you';
+const jwtSecret = 'Why can’t banks keep secrets? There are too many tellers!';
 
 function generateToken(user) {
   const jwtPayload = {
