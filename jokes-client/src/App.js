@@ -25,7 +25,7 @@ class App extends Component {
               Home
             </NavLink>
             &nbsp;|&nbsp;
-            <NavLink to="/users">Jokes</NavLink>
+            <NavLink to="/jokes">Jokes</NavLink>
             &nbsp;|&nbsp;
             <NavLink to="/signup">Sign Up</NavLink>
             &nbsp;|&nbsp;
@@ -46,6 +46,7 @@ class App extends Component {
 
   logOut = () => {
     localStorage.removeItem('jwt');
+    console.log('logged out');
   };
 }
 

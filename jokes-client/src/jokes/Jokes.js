@@ -6,18 +6,29 @@ class Jokes extends Component {
     jokes: [],
   };
 
+  jokeList = () => {
+      if (this.state.jokes) {
+        return (
+            <ul>
+                {this.state.jokes.map(joke => (
+                    <li key={joke.id}>{joke.setup}</li>
+                    // <p>{joke.setup}</p>
+                    // <p>{joke.punchline}</p>
+            
+                ))}
+            </ul>
+        );
+      }
+  }
+
   render() {
     return (
       <div>
         <h2>List of Jokes</h2>
-        <ul>
-          {this.state.jokes.map(joke => (
-            <li key={joke.id}>{joke.username}</li>
-          ))}
-        </ul>
+        {this.jokeList()}
       </div>
     );
-  }
+  };
 
   componentDidMount() {
     const token = localStorage.getItem('jwt');
@@ -32,7 +43,8 @@ class Jokes extends Component {
       .get(endpoint, options)
       .then(res => {
         console.log(res.data);
-        this.setState({ users: res.data.jokes });
+        this.setState({ jokes: res.data });
+        console.log(this.state.jokes);
       })
       .catch(err => {
         console.error('ERROR', err);
